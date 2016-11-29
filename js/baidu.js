@@ -3,6 +3,12 @@ $(function(){
 	var num=0;
 	var flag=true;
 	var les=$("section").length;
+	$("section").mousedown(function(e){
+		e.preventDefault();
+	})
+	$("section").mousemove(function(e){
+		e.preventDefault();
+	})
 	$(".btn li").eq(0).css("background","#316389");
 	touch.on("body","swipeup","#fullpage",function(){		
 		if(!flag){

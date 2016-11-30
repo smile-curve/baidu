@@ -12,7 +12,7 @@ a{
 }
 /*小屏的时候*/
 .container {
-  width: 1000px;
+  width: 100%;
   margin: auto;
 }
 .container > .row {

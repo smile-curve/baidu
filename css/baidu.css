@@ -13,7 +13,8 @@ body{
 	overflow: hidden;
 }
 #fullpage{
-	height: 100%;width: 100%;	
+	height: 100%;width: 100%;
+    position: relative;	
 }
 section{
 	width: 100%;height: 100%;
@@ -39,6 +40,7 @@ section:nth-child(4){
 .header .logo{
 	width: 120px;height: 40px;
 	background: url(../img/logo.png) 0 0 no-repeat;
+    margin-left: 10px;
 }
 .header{
 	height: 60px;
@@ -50,28 +52,119 @@ section:nth-child(4){
 .header .index{
 	font-size: 15px;
 	align-self:flex-end;    /* 垂直对齐方式 */
-	margin-bottom: 5px;
 	font-family: "微软雅黑";
-}
-.header .index:hover{
-	color: #67CBFF;
-}
-.header a:nth-child(2){
-	margin-left: 50px;
+    border-bottom: 1px dotted #ccc;
 }
 .header .last{
 	align-self:flex-end;    /* 容器的对其方式 */
-	margin-bottom: 8px;
 	font-size: 12px;
 	font-family: "微软雅黑";
-}
-.header a:nth-child(5){
-	margin-left: 150px;
+    position: relative;
+    border-bottom: 1px dotted #ccc;
 }
 .header a:nth-child(8){
 	color: #FFDA28;
 }
+/*小屏*/
+.max{
+    display: none;
+}
+.min{
+    display: flex;
+    position: relative;
+}
+.menuOption{
+    width: 20px;height: 30px;
+    position: relative;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+.menuOption .menu-line-top{
+    width: 100%;height: 2px;
+    position: absolute;
+    left: 0;top: 10px;
+    background: #fff;
+    transition:transform 1s ease;
+}
+.menuOption .menu-line-bottom{
+    width: 100%;height: 2px;
+    position: absolute;
+    left: 0;top: 20px;
+    background: #fff;
+    transition:transform 1s ease;
+}
+.min .scene{
+    position: absolute;
+    top: 60px;left: 0;
+    width: 100%;height: 40px;
+    cursor: pointer;
+    perspective:500px;
+}
+.min .menu{
+    position: absolute;
+    top: 0px;left: 0;
+    width: 100%;height: 100%;
+    transform-style:perserve-3d;
+    display: none;
+}
+.min .menu a {
+    display: block;
+    width: 100%;height: 100%;
+    text-align: center;
+    line-height: 40px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    opacity: 0;
+}
 
+/****手机客户端 下拉****/
+.last .phone{
+    width: 320px;height: 252px;
+    background: #fff;
+    position: absolute;
+    top: 25px;left: -120px;
+    display: none;
+}
+.last .download{
+    width: 100%;height: 42px;
+    line-height: 42px;
+    background: #f1f1f1;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    border-bottom: 1px solid #f4f4f4;
+    font-family: microsoft yahei;
+}
+.phone .left,.phone .right{
+    width: 50%;height: 210px;
+    padding: 20px 15px 0;
+    float: left;
+    text-align: center;
+}
+.phone .left .android{
+    background: url(../img/logo.png) 0 -182px;
+    width: 120px;
+    height: 120px;
+}
+.phone p{
+    font-size: 14px;
+    color: #000;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    margin: 18px auto;
+    border-radius: 25px;
+    background: #f5f5f5;
+    text-align: center;
+    font-family: microsoft yahei;
+}
+.phone .right .ios{
+    background: url(../img/logo.png) 0 -305px;
+    width: 120px;
+    height: 120px;
+}
+
+/******按钮******/
 .btn{
 	width: 10px;height: 80px;
 	position: absolute;
@@ -85,52 +178,43 @@ section:nth-child(4){
 	margin: 10px 0;
 	border-radius: 50%;
 }
+
 /*****section 1*****/
-.center{
-	width: 1000px;
-	height: 100%;
-	margin: 0 auto;
-	position: relative;
+.first-img{
+    height: 100%;
+    position: relative;
 }
-.center .login{
-	width: 340px;height: 300px;
-	border-radius: 5px;
-    background: #4ebffc;
+.first-img .row{
+    height: 100%;
+}
+.left-img{
+    height: 100%;
+}
+.left-img img{    
     position: absolute;
-    right: 0;
-    top: 100px;
+    left: 0;top: 15%;
 }
-.center .font{
-	width: 501px;
-    height: 158px;
-    background: url(../img/1font.png);
-    position: absolute;
-    left: 0;
-    top: 120px;
+.right-img{
+    height: 100%;
 }
-.center .fly{
+.fly{
 	width: 119px;
     height: 78px;
     background: url(../img/1fly.png);
     position: absolute;
     left: 295px;
-    top: 100px;
+    top: 80px;
+    animation:fly 2s linear infinite alternate;
 }
-.top{
-	width: 100%;
-	height: 100%;
-}
-.top div{
+.top-yun div{
 	position: absolute;
-	left: 0;top: 0;
-	width: 100%;
-	height: 100%;
+    left: 0;top: 0;
+    width: 200%;
+    height: 100%; 
 	background: url(../img/11.png) repeat;
-	animation:move 100s linear infinite;
+    animation:move 80s linear infinite forwards;
 }
-@keyframe move{
 
-}
 .middle{
 	width: 100%;
 	position: absolute;
@@ -142,7 +226,7 @@ section:nth-child(4){
 	width: 100%;
 	height: 400px;
 	background: url(../img/12.png) repeat;
-	animation:move 280s linear infinite;
+	animation:move 100s linear infinite;
 }
 .bottom{
 	position: absolute;
@@ -158,7 +242,7 @@ section:nth-child(4){
 	width: 100%;
 	height: 400px;
 	background: url(../img/13.png) repeat;
-	animation:move 600s linear infinite;
+	animation:move 150s linear infinite;
 }
 .foot{
 	width: 100%;
@@ -207,18 +291,9 @@ section:nth-child(4){
 }
 /*****section 2*****/
 .center1{
-	width: 1000px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
     position: relative;
-}
-.center1 .font{
-	position: absolute;
-    left: 0;
-    top: 200px;
-    font-family: 'Microsoft Yahei';
-    color: #fff;
-    width: 500px;
-    height: 200px;
 }
 .center1 .font h3{
 	width: 66px;
@@ -226,6 +301,7 @@ section:nth-child(4){
     text-indent: -9999em;
     float: left;
     background: url(../img/2font.png);
+    animation:font 1s linear infinite;
 }
 .center1 .font .text{
 	margin-left: 86px;
@@ -249,14 +325,12 @@ section:nth-child(4){
     height: 427px;
     background: url(../img/2yun.png);
     position: absolute;
-    right: -14px;
-    top: 200px;
+    right: 30px;
+    top: 150px;
 }
 .bottom1{
-	width: 1000px;
-	height: 100%;
+	height: 67%;
     margin: 0 auto;
-    position: relative;
 }
 .bottom1 div{
 	position: absolute;
@@ -294,25 +368,49 @@ section:nth-child(4){
 }
 /*****section 3*****/
 .center2{
-	width: 1000px;
-    margin: 0 auto;
+    width: 100%;height: 100%;
     position: relative;
 }
-.center2 .font{
-	position: absolute;
-    left: 0;
-    top: 200px;
-    font-family: 'Microsoft Yahei';
-    color: #fff;
-    width: 500px;
-    height: 200px;
+.center2 .rect div:nth-child(1){
+    width: 88px;height: 88px;
+    background: #33bb9a;
+    position: absolute;
+    left: 88px;top: 88px;
 }
+.center2 .rect div:nth-child(2){
+    width: 88px;height: 88px;
+    background: #29a2b8;
+    position: absolute;
+    left: 0px;top: 176px;
+}
+.center2 .rect div:nth-child(3){
+    width: 88px;height: 88px;
+    background: #60cf6e;
+    position: absolute;
+    left: 176px;top: 176px;
+}
+.center2 .rect div:nth-child(4){
+    width: 176px;height: 176px;
+    background: #8ae75a;
+    background: url(../img/rect.jpg);
+    position: absolute;
+    left: 88px;top: 264px;
+}
+.center2 .rect div:nth-child(5){
+    width: 88px;height: 88px;
+    background: #33bb9a;
+    position: absolute;
+    left: 264px;top: 264px;
+}
+
 .center2 .font h3{
 	width: 66px;
     height: 126px;
     text-indent: -9999em;
     float: left;
     background: url(../img/3font.png) no-repeat;
+    animation:font 1s linear infinite;
+    z-index: 100;
 }
 .center2 .font .text{
 	margin-left: 86px;
@@ -348,18 +446,8 @@ section:nth-child(4){
 }
 /*****section 4*****/
 .center3{
-	width: 1000px;
-    margin: 0 auto;
+    width: 100%;height: 100%;
     position: relative;
-}
-.center3 .font{
-	position: absolute;
-    left: 100px;
-    top: 200px;
-    font-family: 'Microsoft Yahei';
-    color: #fff;
-    width: 500px;
-    height: 200px;
 }
 .center3 .font h3{
 	width: 66px;
@@ -367,6 +455,7 @@ section:nth-child(4){
     text-indent: -9999em;
     float: left;
     background: url(../img/4font.png) no-repeat;
+    animation:font 1s linear infinite;
 }
 .center3 .font .text{
 	margin-left: 86px;
@@ -395,9 +484,20 @@ section:nth-child(4){
 }
 .bottom3{
 	position: absolute;
-	left: 250px;
+	left: 40px;
     top: 140px;
     width: 275px;
     height: 245px;
     background:url(../img/4qiu.png);
 }
+
+.aa h3{
+    margin-left: -50px;
+    opacity: 0;
+    transition: margin 1s linear,opacity 1s linear;
+}
+.aa .yun{
+    margin-right: -50px;
+    opacity: 0;
+    transition: margin 1s linear,opacity 1s linear;
+} 

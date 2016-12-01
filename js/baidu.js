@@ -52,14 +52,15 @@ $(function(){
 	 //监听过渡完成后要做得事情
 	$("#fullpage")[0].addEventListener("webkitTransitionEnd",function(){
 		flag=true;   
+		//2--4屏 的滑动效果
 		$(".aa").each(function(index,obj){
 			if(index==num){
 				$(obj).find(".aa h3").css({
-					marginLeft:-100,	
+					marginLeft:-50,	
 					opacity:0
 				})
 				$(obj).find(".aa .yun").css({
-					marginRight:-100,	
+					marginRight:-50,	
 					opacity:0
 				})
 			}else{
@@ -83,6 +84,7 @@ $(function(){
 	var flag1=true;
 	$(".menuOption").click(function(){
 		if(flag1){
+			//按钮
 			$(this).find(".menu-line-top").css({
 				transform:"translate(0,5px) rotate(45deg)"
 			})
@@ -134,8 +136,7 @@ $(function(){
 		if(clientW>1000){
 			$(".menu a").css({
 				animation:"none",
-				opacity:0,
-				transform:"rotate(90deg)"
+				opacity:0
 			})
 			$(".menuOption .menu-line-top").css({
 				transform:"translate(0,0) rotate(0deg)"
@@ -144,7 +145,7 @@ $(function(){
 				transform:"translate(0,0) rotate(0deg)"
 			})
 			flag1=true;
-		}		
+		}
 	})
 
 
